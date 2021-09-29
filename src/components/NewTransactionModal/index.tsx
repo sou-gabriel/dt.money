@@ -21,7 +21,7 @@ type NewTransactionModalProps = {
   setIsTheNewTransactionModalOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export function NewTransactionModal (props: NewTransactionModalProps) {
+export const NewTransactionModal = (props: NewTransactionModalProps) => {
   const [transactionType, setTransactionType] =
     useState<'deposit' | 'withdraw'>('deposit')
 

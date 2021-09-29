@@ -1,6 +1,6 @@
 import { Container, Th, Td } from './styles'
 
-export function TransactionTable () {
+export const TransactionTable = () => {
   return (
     <Container>
       <thead>

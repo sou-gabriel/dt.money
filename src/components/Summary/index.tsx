@@ -4,7 +4,7 @@ import incomeIconPath from 'assets/income.svg'
 import outcomeIconPath from 'assets/outcome.svg'
 import totalIconPath from 'assets/total.svg'
 
-export function Summary () {
+export const Summary = () => {
   return (
     <Container>
       <Card>

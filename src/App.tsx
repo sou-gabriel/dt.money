@@ -8,7 +8,7 @@ import { ThemeProvider } from 'styled-components/macro'
 import { GlobalStyle } from 'styles/global'
 import { theme } from 'styles/theme'
 
-function App () {
+export const App = () => {
   const [isTheNewTransactionModalOpen, setIsTheNewTransactionModalOpen] =
     useState(false)
 
@@ -25,5 +25,3 @@ function App () {
     </ThemeProvider>
   )
 }
-
-export default App

@@ -3,7 +3,7 @@ import { TransactionTable } from 'components/TransactionTable'
 
 import { Container } from './styles'
 
-export function Main () {
+export const Main = () => {
   return (
     <Container>
       <Summary />
