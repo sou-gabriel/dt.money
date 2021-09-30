@@ -1,6 +1,33 @@
-import { Container, Th, Td } from './styles'
+import { useContext, MouseEvent } from 'react'
+import { TransactionsContext } from 'TransactionsContext'
 
-export function TransactionTable () {
+import trashIconPath from 'assets/trash.png'
+
+import { Container, Th, Td, ButtonTransactionDelete, TrashIcon } from './styles'
+
+export const TransactionTable = () => {
+  const { transactions, setTransactions } = useContext(TransactionsContext)
+
+  const formatPrice = (price: number, type: 'deposit' | 'withdraw') => {
+    const priceFormatted = Intl.NumberFormat('pt-br', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(price)
+
+    return type === 'withdraw' ? `- ${priceFormatted}` : priceFormatted
+  }
+
+  const formatDate = (date: Date) => {
+    return new Intl.DateTimeFormat('pt-br').format(date)
+  }
+
+  const handleTransactionDelete = (event: MouseEvent<HTMLButtonElement>) => {
+    setTransactions(prevTransactions => {
+      return prevTransactions.filter(transaction =>
+        transaction.id !== (event.target as HTMLButtonElement).dataset.js)
+    })
+  }
+
   return (
     <Container>
       <thead>
@@ -9,21 +36,35 @@ export function TransactionTable () {
           <Th>Preço</Th>
           <Th>Categoria</Th>
           <Th>Data</Th>
+          <Th />
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <Td>Hamburguer</Td>
-          <Td transactionType='withdraw'>- R$ 59,00</Td>
-          <Td>Alimentação</Td>
-          <Td>10/04/2021</Td>
-        </tr>
-        <tr>
-          <Td>Monitor</Td>
-          <Td transactionType='deposit'>R$ 1000.00</Td>
-          <Td>Venda</Td>
-          <Td>15/04/2021</Td>
-        </tr>
+        {transactions.map((transaction) => {
+          const priceFormatted = formatPrice(transaction.price, transaction.type)
+          const dateFormatted = formatDate(transaction.createdAt)
+
+          return (
+            <tr key={transaction.id}>
+              <Td>{transaction.title}</Td>
+              <Td transactionType={transaction.type}>{priceFormatted}</Td>
+              <Td>{transaction.category}</Td>
+              <Td>{dateFormatted}</Td>
+              <Td>
+                <ButtonTransactionDelete
+                  onClick={handleTransactionDelete}
+                  data-js={transaction.id}
+                  title='Excluir transação'
+                >
+                  <TrashIcon
+                    src={trashIconPath}
+                    alt='Excluir transação' data-js={transaction.id}
+                  />
+                </ButtonTransactionDelete>
+              </Td>
+            </tr>
+          )
+        })}
       </tbody>
     </Container>
   )

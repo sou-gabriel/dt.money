@@ -8,7 +8,7 @@ type HeaderProps = {
   setIsTheNewTransactionModalOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export function Header (props: HeaderProps) {
+export const Header = (props: HeaderProps) => {
   return (
     <Container>
       <InnerContainer>
