@@ -22,7 +22,6 @@ type Transaction = {
 export const App = () => {
   const [isTheNewTransactionModalOpen, setIsTheNewTransactionModalOpen] =
     useState(false)
-  // Persistir transações
   const { transactions, setTransactions } = useContext(TransactionsContext)
 
   useEffect(() => {
