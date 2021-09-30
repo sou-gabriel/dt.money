@@ -1,11 +1,14 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import { App } from './App'
 import reportWebVitals from './reportWebVitals'
+import { TransactionsProvider } from 'TransactionsContext'
 
 ReactDOM.render(
   <StrictMode>
-    <App />
+    <TransactionsProvider>
+      <App />
+    </TransactionsProvider>
   </StrictMode>,
   document.getElementById('root'),
 )
