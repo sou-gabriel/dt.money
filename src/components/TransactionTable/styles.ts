@@ -21,9 +21,20 @@ export const Th = styled.th`
 export const Td = styled.td<TDProps>`
   padding: 1rem 2rem;
   border: 0;
-  border-radius: 0.25rem;
   background-color: ${props => props.theme.colors.white};
   color: ${props => props.theme.colors.text};
+
+  &:first-child {
+    border-radius: 0.25rem 0 0 0.25rem;
+  }
+
+  &:last-child {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    border-radius: 0 .25rem .25rem 0;
+    text-align: center;
+  }
 
   &:nth-child(1) {
     color: ${props => props.theme.colors.title};
@@ -35,4 +46,11 @@ export const Td = styled.td<TDProps>`
       : props.theme.colors.red
     };
   }
+`
+
+export const ButtonTransactionDelete = styled.button`
+  background: transparent;
+`
+
+export const TrashIcon = styled.img`
 `

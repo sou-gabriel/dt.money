@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro'
+import { transparentize } from 'polished'
 
 export const Container = styled.header`
   height: 13.25rem;
@@ -25,9 +26,10 @@ export const ButtonNewTransaction = styled.button`
   font-size: 1rem;
   color: ${props => props.theme.colors.white};
   background-color: ${props => props.theme.colors.violetLight};
-  transition: filter 100ms;
+  transition: all 100ms;
 
   &:hover {
-    filter: brightness(0.9);
+    background-color: ${props => transparentize(0.5, props.theme.colors.violetLight)};
+    transform: scale(1.05);
   }
 `
