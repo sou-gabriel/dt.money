@@ -1,4 +1,6 @@
-import { useState, Dispatch, SetStateAction } from 'react'
+import { useState, useContext, Dispatch, SetStateAction, FormEvent } from 'react'
+import { TransactionsContext } from 'TransactionsContext'
+import { v4 as uuidv4 } from 'uuid'
 
 import incomeIconPath from 'assets/income.svg'
 import outcomeIconPath from 'assets/outcome.svg'
@@ -26,13 +28,32 @@ ModalStyled.setAppElement('#root')
 export const NewTransactionModal = (props: NewTransactionModalProps) => {
   const [transactionType, setTransactionType] =
     useState<'deposit' | 'withdraw'>('deposit')
+  const { transactions, setTransactions } = useContext(TransactionsContext)
+
+  const handleCreateNewTransaction = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    const form = event.target as HTMLFormElement
+
+    const newTransaction = {
+      id: uuidv4(),
+      title: form.transactionTitle.value,
+      type: transactionType,
+      price: form.price.valueAsNumber,
+      category: form.category.value,
+      createdAt: new Date(),
+    }
+
+    setTransactions([...transactions, newTransaction])
+    props.setIsTheNewTransactionModalOpen(false)
+  }
 
   return (
     <ModalStyled
       isOpen={props.isTheNewTransactionModalOpen}
       onRequestClose={() => props.setIsTheNewTransactionModalOpen(false)}
     >
-      <Form>
+      <Form onSubmit={handleCreateNewTransaction}>
         <ButtonCloseModal
           type='button'
           onClick={() => props.setIsTheNewTransactionModalOpen(false)}
@@ -43,7 +64,12 @@ export const NewTransactionModal = (props: NewTransactionModalProps) => {
         <Fieldset>
           <Legend>Cadastrar transação</Legend>
 
-          <Input type='text' placeholder='Título' />
+          <Input
+            type='text'
+            name='transactionTitle'
+            placeholder='Título'
+            required
+          />
 
           <InputTypeContainer>
             <InputTypeButton
@@ -67,10 +93,10 @@ export const NewTransactionModal = (props: NewTransactionModalProps) => {
             </InputTypeButton>
           </InputTypeContainer>
 
-          <Input type='number' placeholder='Preço' />
-          <Input type='text' placeholder='Categoria' />
+          <Input type='number' name='price' placeholder='Preço' required />
+          <Input type='text' name='category' placeholder='Categoria' required />
 
-          <SubmitButton>Cadastrar</SubmitButton>
+          <SubmitButton type='submit'>Cadastrar</SubmitButton>
         </Fieldset>
       </Form>
     </ModalStyled>
