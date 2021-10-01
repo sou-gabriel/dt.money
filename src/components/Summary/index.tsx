@@ -1,5 +1,4 @@
-import { useContext } from 'react'
-import { TransactionsContext } from 'TransactionsContext'
+import { useTransactions } from 'hooks/useTransactions'
 
 import { Container, Card, FullSummaryCard, Header, Type, Amount } from './styles'
 
@@ -8,7 +7,7 @@ import outcomeIconPath from 'assets/outcome.svg'
 import totalIconPath from 'assets/total.svg'
 
 export const Summary = () => {
-  const { transactions } = useContext(TransactionsContext)
+  const { transactions } = useTransactions()
 
   const { deposit, withdraw, total } = transactions.reduce((acc, transaction) => {
     if (transaction.type === 'deposit') {
@@ -30,7 +29,7 @@ export const Summary = () => {
     total: 0,
   })
 
-  const formatValues = (values: number[]) => {
+  const formatValuesForBrl = (values: number[]) => {
     return values.map(value => {
       return new Intl.NumberFormat('pt-br', {
         style: 'currency',
@@ -40,7 +39,7 @@ export const Summary = () => {
   }
 
   const [depositFormatted, withdrawFormatted, totalFormatted] =
-    formatValues([deposit, withdraw, total])
+    formatValuesForBrl([deposit, withdraw, total])
 
   return (
     <Container>

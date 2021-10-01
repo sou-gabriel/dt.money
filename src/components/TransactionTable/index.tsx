@@ -1,12 +1,12 @@
-import { useContext, MouseEvent } from 'react'
-import { TransactionsContext } from 'TransactionsContext'
+import { MouseEvent } from 'react'
+import { useTransactions } from 'hooks/useTransactions'
 
 import trashIconPath from 'assets/trash.png'
 
 import { Container, Th, Td, ButtonTransactionDelete, TrashIcon } from './styles'
 
 export const TransactionTable = () => {
-  const { transactions, setTransactions } = useContext(TransactionsContext)
+  const { transactions, setTransactions } = useTransactions()
 
   const formatPrice = (price: number, type: 'deposit' | 'withdraw') => {
     const priceFormatted = Intl.NumberFormat('pt-br', {
@@ -17,9 +17,8 @@ export const TransactionTable = () => {
     return type === 'withdraw' ? `- ${priceFormatted}` : priceFormatted
   }
 
-  const formatDate = (date: Date) => {
-    return new Intl.DateTimeFormat('pt-br').format(date)
-  }
+  const formatDate = (date: Date) =>
+    new Intl.DateTimeFormat('pt-br').format(date)
 
   const handleTransactionDelete = (event: MouseEvent<HTMLButtonElement>) => {
     setTransactions(prevTransactions => {
