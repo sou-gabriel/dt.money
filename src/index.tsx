@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
 import { App } from './App'
 import reportWebVitals from './reportWebVitals'
-import { TransactionsProvider } from 'TransactionsContext'
+import { TransactionsProvider } from 'hooks/useTransactions'
 
 ReactDOM.render(
   <StrictMode>

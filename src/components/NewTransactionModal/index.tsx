@@ -1,5 +1,5 @@
-import { useState, useContext, Dispatch, SetStateAction, FormEvent } from 'react'
-import { TransactionsContext } from 'TransactionsContext'
+import { useState, Dispatch, SetStateAction, FormEvent } from 'react'
+import { useTransactions } from 'hooks/useTransactions'
 import { v4 as uuidv4 } from 'uuid'
 
 import incomeIconPath from 'assets/income.svg'
@@ -28,7 +28,7 @@ ModalStyled.setAppElement('#root')
 export const NewTransactionModal = (props: NewTransactionModalProps) => {
   const [transactionType, setTransactionType] =
     useState<'deposit' | 'withdraw'>('deposit')
-  const { transactions, setTransactions } = useContext(TransactionsContext)
+  const { transactions, setTransactions } = useTransactions()
 
   const handleCreateNewTransaction = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
