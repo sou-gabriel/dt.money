@@ -1,46 +1,57 @@
-# Getting Started with Create React App
+<div align='center'>
+  <img src='src/assets/logo.svg'>
+  <p>Aplicação web de controle de transações financeiras</p>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![GIF demonstrativo](.github/demo.gif)
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Sobre
+A <a href='dt-money-app.netlify.app/' target='_blank'>dt.money</a> é uma aplicação web para controle de transações financeiras desenvolvida com React durante o <a href='https://www.rocketseat.com.br/ignite'>Ignite</a>.
 
-### `yarn start`
+## Objetivo
+Recriar do zero, por conta própria, e com mais funcionalidades uma aplicação controle de transações financeiras desenvolvida durante o Chapter 2 do <a href='https://www.rocketseat.com.br/ignite'>Ignite</a>.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tecnologias utilizadas
+- Create React App (CRA);
+- Eslint (Standard);
+- Husky;
+- TypeScript;
+- React.js;
+- Localforage;
+- Styled components.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Como usar
+### Passo 01: Clonando a aplicação
+Neste você executará o comando abaixo para clonar os arquivos deste repositório em sua máquina, afim de que possa também usá-lo localmente.
 
-### `yarn test`
+```bash
+$ git clone https://github.com/sou-gabriel/dt.money.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Passo 02: Instalando as dependências do projeto
+No seu gerenciador de pacotes preferido execute um dos comandos abaixo para instalar todas as dependências necessárias para o funcionamento da aplicação.
 
-### `yarn build`
+```bash
+$ yarn
+# ou
+$ npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Passo 03: Levantando um servidor local
+Executando um dos comandos abaixo será levantado um servidor de desenvolvimento na sua porta 3000: <a href="http://localhost:3000/" target="_blank">http://localhost:3000/</a>.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+$ yarn dev
+# ou
+$ npm run dev
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `yarn eject`
+Feito com ❤️ por Gabriel Ramos 👋🏽 Entre em contato!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[![Linkedin Badge](https://img.shields.io/badge/-sou--gabriel-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/sou-gabriel/)](https://www.linkedin.com/in/sou-gabriel/) 
+[![Gmail Badge](https://img.shields.io/badge/-dev.gabrielramos@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:dev.gabrielramos@gmail.com)](mailto:dev.gabrielramos@gmail.com)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
