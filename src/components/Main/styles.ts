@@ -19,9 +19,11 @@ export const MessageNoTransaction = styled.span`
   align-items: center;
   flex-direction: column;
   gap: 1rem;
+  max-width: 80%;
   font-weight: 600;
   font-size: 1.5rem;
   color: ${props => props.theme.colors.text};
+  text-align: center;
 
   img {
     width: 200px;

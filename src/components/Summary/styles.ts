@@ -8,6 +8,11 @@ export const Container = styled.section`
   display: flex;
   justify-content: space-between;
   gap: 2rem;
+
+  @media (max-width: 610px) {
+    flex-direction: column;
+    gap: 1rem
+  }
 `
 
 export const Card = styled.div`
@@ -16,6 +21,10 @@ export const Card = styled.div`
   border-radius: 0.3125rem;
   color: ${props => props.theme.colors.title};
   background-color: ${props => props.theme.colors.white};
+
+  @media (max-width: 610px) {
+    width: 100%;
+  }
 `
 
 export const FullSummaryCard = styled(Card)<FullSummaryCardProps>`

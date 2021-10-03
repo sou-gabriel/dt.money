@@ -17,6 +17,10 @@ export const InnerContainer = styled.div`
 
 export const H1 = styled.h1`
   display: inline-flex;
+
+  @media (max-width: 610px) {
+    margin: 0 auto;
+  }
 `
 
 export const ButtonNewTransaction = styled.button`
@@ -31,5 +35,26 @@ export const ButtonNewTransaction = styled.button`
   &:hover {
     background-color: ${props => transparentize(0.5, props.theme.colors.violetLight)};
     transform: scale(1.05);
+  }
+
+  @media (max-width: 610px) {
+    display: none;
+  }
+`
+
+export const ButtonNewTransactionMobile = styled.button`
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 20px;
+  color: ${props => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.violetLight};
+
+  @media (max-width: 610px) {
+    display: block;
   }
 `

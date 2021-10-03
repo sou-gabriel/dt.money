@@ -4,9 +4,15 @@ type TDProps = {
   transactionType?: 'deposit' | 'withdraw'
 }
 
-export const Container = styled.table`
+export const Container = styled.div`
   width: 100%;
   margin-top: 4rem;
+  padding-bottom: 1rem;
+  overflow-x: scroll;
+`
+
+export const Table = styled.table`
+  width: 100%;
   border-spacing: 0 0.5rem;
 `
 
@@ -23,6 +29,7 @@ export const Td = styled.td<TDProps>`
   border: 0;
   background-color: ${props => props.theme.colors.white};
   color: ${props => props.theme.colors.text};
+  white-space: nowrap;
 
   &:first-child {
     border-radius: 0.25rem 0 0 0.25rem;
@@ -30,8 +37,6 @@ export const Td = styled.td<TDProps>`
 
   &:last-child {
     display: flex;
-    justify-content: center;
-    padding-left: 0;
     border-radius: 0 .25rem .25rem 0;
     text-align: center;
   }
@@ -46,9 +51,14 @@ export const Td = styled.td<TDProps>`
       : props.theme.colors.red
     };
   }
+
+  @media (max-width: 610px) {
+    padding: 1rem 1rem;
+  }
 `
 
 export const ButtonTransactionDelete = styled.button`
+  display: inline-flex;
   background: transparent;
 `
 
