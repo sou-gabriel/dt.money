@@ -22,6 +22,12 @@ Recriar do zero, por conta própria, e com mais funcionalidades uma aplicação 
 - Localforage;
 - Styled components.
 
+## Ideias de implementação
+- [ ] Implementação de uma funcionalidade para tema claro e escuro
+- [ ] Funcionalidade que permita ao usuário editar uma transação
+- [ ] Tela de login
+- [ ] Armazenamento das transações em um banco de dados
+
 ## Como usar
 ### Passo 01: Clonando a aplicação
 Neste você executará o comando abaixo para clonar os arquivos deste repositório em sua máquina, afim de que possa também usá-lo localmente.
