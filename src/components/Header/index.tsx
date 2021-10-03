@@ -2,7 +2,13 @@ import { Dispatch, SetStateAction } from 'react'
 
 import logoIconPath from 'assets/logo.svg'
 
-import { Container, InnerContainer, H1, ButtonNewTransaction } from './styles'
+import {
+  Container,
+  InnerContainer,
+  H1,
+  ButtonNewTransaction,
+  ButtonNewTransactionMobile,
+} from './styles'
 
 type HeaderProps = {
   setIsTheNewTransactionModalOpen: Dispatch<SetStateAction<boolean>>
@@ -22,6 +28,12 @@ export const Header = (props: HeaderProps) => {
           Nova transação
         </ButtonNewTransaction>
       </InnerContainer>
+
+      <ButtonNewTransactionMobile
+        onClick={() => props.setIsTheNewTransactionModalOpen(true)}
+      >
+        +
+      </ButtonNewTransactionMobile>
     </Container>
   )
 }

@@ -3,7 +3,7 @@ import { useTransactions } from 'hooks/useTransactions'
 
 import trashIconPath from 'assets/trash.png'
 
-import { Container, Th, Td, ButtonTransactionDelete, TrashIcon } from './styles'
+import { Container, Table, Th, Td, ButtonTransactionDelete, TrashIcon } from './styles'
 
 export const TransactionTable = () => {
   const { transactions, setTransactions } = useTransactions()
@@ -29,42 +29,44 @@ export const TransactionTable = () => {
 
   return (
     <Container>
-      <thead>
-        <tr>
-          <Th>Título</Th>
-          <Th>Preço</Th>
-          <Th>Categoria</Th>
-          <Th>Data</Th>
-          <Th />
-        </tr>
-      </thead>
-      <tbody>
-        {transactions.map((transaction) => {
-          const priceFormatted = formatPrice(transaction.price, transaction.type)
-          const dateFormatted = formatDate(transaction.createdAt)
+      <Table>
+        <thead>
+          <tr>
+            <Th>Título</Th>
+            <Th>Preço</Th>
+            <Th>Categoria</Th>
+            <Th>Data</Th>
+            <Th />
+          </tr>
+        </thead>
+        <tbody>
+          {transactions.map((transaction) => {
+            const priceFormatted = formatPrice(transaction.price, transaction.type)
+            const dateFormatted = formatDate(transaction.createdAt)
 
-          return (
-            <tr key={transaction.id}>
-              <Td>{transaction.title}</Td>
-              <Td transactionType={transaction.type}>{priceFormatted}</Td>
-              <Td>{transaction.category}</Td>
-              <Td>{dateFormatted}</Td>
-              <Td>
-                <ButtonTransactionDelete
-                  onClick={handleTransactionDelete}
-                  data-js={transaction.id}
-                  title='Excluir transação'
-                >
-                  <TrashIcon
-                    src={trashIconPath}
-                    alt='Excluir transação' data-js={transaction.id}
-                  />
-                </ButtonTransactionDelete>
-              </Td>
-            </tr>
-          )
-        })}
-      </tbody>
+            return (
+              <tr key={transaction.id}>
+                <Td>{transaction.title}</Td>
+                <Td transactionType={transaction.type}>{priceFormatted}</Td>
+                <Td>{transaction.category}</Td>
+                <Td>{dateFormatted}</Td>
+                <Td>
+                  <ButtonTransactionDelete
+                    onClick={handleTransactionDelete}
+                    data-js={transaction.id}
+                    title='Excluir transação'
+                  >
+                    <TrashIcon
+                      src={trashIconPath}
+                      alt='Excluir transação' data-js={transaction.id}
+                    />
+                  </ButtonTransactionDelete>
+                </Td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </Table>
     </Container>
   )
 }
