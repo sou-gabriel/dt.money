@@ -16,7 +16,7 @@ export const App = () => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Header setIsTheNewTransactionModalOpen={setIsTheNewTransactionModalOpen} />
-      <Main />
+      <Main setIsTheNewTransactionModalOpen={setIsTheNewTransactionModalOpen} />
       <NewTransactionModal
         isTheNewTransactionModalOpen={isTheNewTransactionModalOpen}
         setIsTheNewTransactionModalOpen={setIsTheNewTransactionModalOpen}
