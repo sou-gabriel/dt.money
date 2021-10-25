@@ -7,7 +7,6 @@ import {
   InnerContainer,
   H1,
   ButtonNewTransaction,
-  ButtonNewTransactionMobile,
 } from './styles'
 
 type HeaderProps = {
@@ -28,12 +27,6 @@ export const Header = (props: HeaderProps) => {
           Nova transação
         </ButtonNewTransaction>
       </InnerContainer>
-
-      <ButtonNewTransactionMobile
-        onClick={() => props.setIsTheNewTransactionModalOpen(true)}
-      >
-        +
-      </ButtonNewTransactionMobile>
     </Container>
   )
 }

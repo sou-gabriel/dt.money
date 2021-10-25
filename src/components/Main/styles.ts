@@ -4,7 +4,8 @@ export const Container = styled.main`
   max-width: 1120px;
   margin: 0 auto;
   margin-top: -4.25rem;
-  padding: 0 1rem;
+  padding: 0 1rem 4rem;
+  position: relative;
 `
 
 export const EmptyTransactionContainer = styled.div`
@@ -28,5 +29,22 @@ export const MessageNoTransaction = styled.span`
   img {
     width: 200px;
     opacity: 0.5;
+  }
+`
+
+export const ButtonNewTransactionMobile = styled.button`
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 20px;
+  color: ${props => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.violetLight};
+
+  @media (max-width: 610px) {
+    display: block;
   }
 `
