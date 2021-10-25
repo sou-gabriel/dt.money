@@ -48,5 +48,5 @@ export const Main = (props: MainProps) => {
         <Summary />
         <TransactionTable />
       </Container>
-    )
+      )
 }
